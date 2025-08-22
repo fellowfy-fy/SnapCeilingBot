@@ -12,6 +12,9 @@ from ..config import settings  # settings.LEADS_CHAT_ID из .env
 
 router = Router()
 
+router.message.filter(F.chat.type == "private")
+router.callback_query.filter(F.message.chat.type == "private")
+
 class LeadForm(StatesGroup):
     name          = State()
     addr_street   = State()

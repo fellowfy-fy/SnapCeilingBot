@@ -9,6 +9,9 @@ from ..llm import make_dialog_context, chat_completion
 
 router = Router()
 
+router.message.filter(F.chat.type == "private")
+router.callback_query.filter(F.message.chat.type == "private")
+
 @router.callback_query(F.data == "lead:book")
 async def start_lead_cb(cb: CallbackQuery, state: lead_fsm.FSMContextType):
     await cb.answer()
