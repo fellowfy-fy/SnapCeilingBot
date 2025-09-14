@@ -10,9 +10,6 @@ def main_kb() -> InlineKeyboardMarkup:
 
 
 def contact_request_kb() -> ReplyKeyboardMarkup:
-    """
-    Удобная кнопка для отправки телефона (по желанию).
-    """
     return ReplyKeyboardMarkup(
         resize_keyboard=True,
         one_time_keyboard=True,
